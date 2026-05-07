@@ -1,0 +1,90 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": ".eddie-config.json",
+  "description": "Per-run configuration written by the EDDIE orchestrator. Lives at <project>/eddie/<run-slug>/.eddie-config.json. EDDIE writes this; do not hand-edit.",
+  "type": "object",
+  "required": [
+    "run_name",
+    "project_type",
+    "active_phases",
+    "current_phase",
+    "phase_status",
+    "created_at"
+  ],
+  "properties": {
+    "run_name": {
+      "type": "string",
+      "description": "kebab-case slug, e.g. 'login-feature-mfa'"
+    },
+    "project_type": {
+      "type": "string",
+      "enum": [
+        "software-app",
+        "software-script",
+        "craft-physical",
+        "process-redesign",
+        "research-doc",
+        "hybrid"
+      ]
+    },
+    "active_phases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["explore", "define", "design", "implement", "evaluate"]
+      },
+      "description": "Phases active for this run, in order. Defaults depend on project_type."
+    },
+    "current_phase": {
+      "type": "string",
+      "enum": ["explore", "define", "design", "implement", "evaluate"]
+    },
+    "phase_status": {
+      "type": "object",
+      "properties": {
+        "explore": { "$ref": "#/definitions/phaseState" },
+        "define": { "$ref": "#/definitions/phaseState" },
+        "design": { "$ref": "#/definitions/phaseState" },
+        "implement": { "$ref": "#/definitions/phaseState" },
+        "evaluate": { "$ref": "#/definitions/phaseState" }
+      }
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date"
+    },
+    "references_prior_runs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Run-slugs of prior EDDIE rounds in this project that this run builds on."
+    },
+    "supersedes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["req_id", "from_run", "reason"],
+        "properties": {
+          "req_id": { "type": "string" },
+          "from_run": { "type": "string" },
+          "reason": { "type": "string" }
+        }
+      },
+      "description": "PRD requirements this run intentionally replaces from prior runs. Old tests get archived to tests/_archived/<from_run>/."
+    },
+    "evaluation": {
+      "type": "object",
+      "properties": {
+        "framework": {
+          "type": "string",
+          "enum": ["playwright", "vitest", "jest", "cypress", "human-rubric", "other"]
+        }
+      }
+    }
+  },
+  "definitions": {
+    "phaseState": {
+      "type": "string",
+      "enum": ["pending", "in_progress", "done", "skipped"]
+    }
+  }
+}
