@@ -1,5 +1,6 @@
 ---
 name: eddie
+version: 0.1.0
 description: Orchestrator for the EDDIE meta-skill (Explore→Define→Design→Implement→Evaluate). Use when starting a new project run, resuming a prior run, switching between runs in the same project, or whenever the user types /eddie. Manages run-scoped folders under <project>/eddie/<run-slug>/, classifies project type per-run (software-app, software-script, craft-physical, process-redesign, research-doc, hybrid), activates the right phases for that type, and routes between phase skills with hard gates. EDDIE is a pushback engine, not a judge — never auto-proceed past a gate; always ask the user.
 ---
 

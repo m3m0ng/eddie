@@ -1,5 +1,6 @@
 ---
 name: eddie-evaluate
+version: 0.1.0
 description: Fifth phase of EDDIE. Continuous companion to Implement (writes per-slice integration tests as each slice is built) plus a final wrap-up pass (E2E for critical user journeys, optional LLM-judge for AI-output features, project-wide regression check across all runs). Defaults to Kent C. Dodds' Testing Trophy. Maintains per-run RTM and aggregates into project-wide RTM. Adaptive for non-software runs (human-observation rubric).
 ---
 

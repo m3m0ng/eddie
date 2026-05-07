@@ -1,5 +1,6 @@
 ---
 name: eddie-implement
+version: 0.1.0
 description: Fourth phase of EDDIE. Breaks the PRD + architecture into a vertical-slice task list, then executes one task at a time with TDD enforced via Red/Green/Refactor subagent isolation. Walking skeleton first, then user-story slices (each built start-to-finish across all layers before moving on), then polish. Calls into eddie-evaluate per slice for the integration test. Hard gate at end.
 ---
 

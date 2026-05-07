@@ -1,8 +1,8 @@
 {
   "name": "eddie",
   "description": "EDDIE — Explore, Define, Design, Implement, Evaluate. A meta-skill that walks non-technical builders through professional-grade product development with AI agents. Domain-agnostic (software, craft, process redesign, research).",
-  "version": "0.1.0",
-  "author": "m3m0ng",
-  "homepage": "https://github.com/m3m0ng/eddie",
-  "repository": "https://github.com/m3m0ng/eddie"
+  "author": {
+    "name": "m3m0ng",
+    "email": "elegyhao@gmail.com"
+  }
 }

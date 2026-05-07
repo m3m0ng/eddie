@@ -1,5 +1,6 @@
 ---
 name: eddie-define
+version: 0.1.0
 description: Second phase of EDDIE. Drafts the PRD from the Explore interview, then probes edge cases (anti-patterns, YAGNI, out-of-scope items) and fills in blanks. Output is prd.md with Given-When-Then acceptance criteria so requirements are directly test-scaffoldable downstream. Hard gate at the end. Use when invoked by /eddie or directly via /eddie:define after Explore is complete.
 ---
 

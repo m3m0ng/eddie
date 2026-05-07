@@ -1,5 +1,6 @@
 ---
 name: eddie-design
+version: 0.1.0
 description: Third phase of EDDIE. Research-heavy. Spawns 2-3 parallel subagents on existing solutions, technical feasibility, and (optionally) domain-expert questions. Then re-interviews the user on tech stack and current strategies. Outputs architecture-design.md (or approach.md for non-software runs) aligned to the PRD with ADR-style decision blocks. Hard gate at the end.
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: eddie-explore
+version: 0.1.0
 description: First phase of EDDIE. Interview-style grilling on user intent, target audience, problem shape, and justification for building. Forces the user to confront whether a no-cost alternative would solve their problem before committing build time. Output is the Vision + Scope sections of interview.md. Hard gate at the end. Use when invoked by /eddie orchestrator or directly via /eddie:explore.
 ---
 
