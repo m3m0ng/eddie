@@ -117,3 +117,9 @@ EDDIE is v0.1. I'm dogfooding it on my own projects, but it'll only get better w
 ## License
 
 MIT.
+
+---
+
+## Why EDDIE works this way
+
+Curious about the research, the design decisions, and why specific patterns were chosen? The full story is in [`docs/`](./docs/).
