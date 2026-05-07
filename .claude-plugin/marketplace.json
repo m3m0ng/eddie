@@ -1,0 +1,23 @@
+{
+  "name": "eddie-marketplace",
+  "owner": {
+    "name": "m3m0ng",
+    "email": "elegyhao@gmail.com"
+  },
+  "metadata": {
+    "description": "EDDIE — a meta-skill for professional-grade product development with AI",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "eddie",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/m3m0ng/eddie.git"
+      },
+      "description": "EDDIE — Explore, Define, Design, Implement, Evaluate. A meta-skill that walks non-technical builders through professional-grade product development with AI agents. Domain-agnostic (software, craft, process redesign, research).",
+      "version": "0.1.0",
+      "strict": true
+    }
+  ]
+}
