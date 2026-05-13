@@ -2,5 +2,5 @@
 Thumbs.db
 *.log
 eddie/
-test/
+tests/
 .claude/worktrees/
