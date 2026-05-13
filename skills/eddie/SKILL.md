@@ -51,7 +51,7 @@ Check `<project-root>/eddie/`:
 
    DO NOT overwrite existing user content. If a target path already has content, halt and surface the conflict.
 
-5. **Hand off** to the first active phase skill.
+5. **Hand off** to the first active phase skill. Note: Explore runs as a two-pass interrogation with a market-research subagent between passes, so users should expect a research step mid-Explore rather than a single uninterrupted interview.
 
 ## Step 3 — Resume an existing run
 

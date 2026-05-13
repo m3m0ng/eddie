@@ -13,3 +13,4 @@ You don't need to read these to *use* EDDIE. But if you're curious why it has fi
 | [`03-how-eddie-is-structured.md`](./03-how-eddie-is-structured.md) | Why there are five phases, why the orchestrator exists, how project types work, and what EDDIE deliberately refuses to do |
 | [`04-what-eddie-promises.md`](./04-what-eddie-promises.md) | The full list of commitments EDDIE makes to you — the requirements that every decision is tested against |
 | [`05-the-patterns-we-chose.md`](./05-the-patterns-we-chose.md) | Why vertical slices, why the Testing Trophy, why Playwright, and why TDD uses isolated subagents |
+| [`06-lessons-from-real-runs.md`](./06-lessons-from-real-runs.md) | What was learned dogfooding EDDIE on its own orchestrator and Explore phase — concrete revisions and the principles they revealed |

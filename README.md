@@ -65,7 +65,7 @@ Multiple runs per project coexist. Tests accumulate at `<project>/tests/<run-slu
 
 | Phase | What it does | Output |
 |-------|--------------|--------|
-| **Explore** | Interview-style grilling. Justify the build vs. no-cost alternatives. | `interview.md` (Vision + Scope) |
+| **Explore** | Two-pass interrogation: raw-intent first pass → market-research subagent → evidence-armed second pass. Build-vs-existing-alternatives is informational, not adversarial. | `interview.md` + `research-findings.md` |
 | **Define** | First-draft PRD, then probe edge cases, anti-patterns, YAGNI. | `prd.md` |
 | **Design** | Parallel research subagents on existing solutions + technical feasibility. ADR-style architecture decisions. | `architecture-design.md` or `approach.md` |
 | **Implement** | Vertical-slice task list. TDD enforced via Red/Green/Refactor subagent isolation. | `tasks.md` + working code + tests |
@@ -122,4 +122,4 @@ MIT.
 
 ## Why EDDIE works this way
 
-Curious about the research, the design decisions, and why specific patterns were chosen? The full story is in [`docs/`](./docs/).
+Curious about the research, the design decisions, and why specific patterns were chosen? The full story is in [`docs/`](./docs/). For concrete lessons from dogfooding EDDIE on itself — what got cut from the orchestrator, why Explore was rewritten as two-pass with a market-research subagent, and what patterns survived contact with real runs — see [`docs/06-lessons-from-real-runs.md`](./docs/06-lessons-from-real-runs.md).

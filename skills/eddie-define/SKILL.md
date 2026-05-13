@@ -32,12 +32,13 @@ Non-negotiable for every interview interaction in Define:
 ## Inputs
 
 - `eddie/<run-slug>/interview.md` (Explore output)
+- `eddie/<run-slug>/research-findings.md` if present (Explore's market-research subagent output) — read in full; surface in the PRD any findings that affect user-story scope or out-of-scope cuts
 - `eddie/<run-slug>/.eddie-config.json`
 - Any referenced prior-run PRDs
 
 ## Step 1 — Draft the PRD from interview.md
 
-Read the interview thoroughly. Use the template at `templates/prd-template.md`. Fill in:
+Read the interview thoroughly. If `research-findings.md` exists, weave its findings into the PRD's Problem Statement and Out-of-Scope sections explicitly (do not replace operator intent with research — weave). Use the template at `templates/prd-template.md`. Fill in:
 
 - Problem statement (the *why* in user's words)
 - Solution (one paragraph, no implementation language)

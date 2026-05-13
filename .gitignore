@@ -1,5 +1,6 @@
 .DS_Store
 Thumbs.db
 *.log
-.eddie-config.json
 eddie/
+test/
+.claude/worktrees/
