@@ -6,7 +6,7 @@
   },
   "metadata": {
     "description": "EDDIE — a meta-skill for professional-grade product development with AI",
-    "version": "0.1.0"
+    "version": "0.2.0"
   },
   "plugins": [
     {
@@ -16,7 +16,7 @@
         "url": "https://github.com/m3m0ng/eddie.git"
       },
       "description": "EDDIE — Explore, Define, Design, Implement, Evaluate. A meta-skill that walks non-technical builders through professional-grade product development with AI agents. Domain-agnostic (software, craft, process redesign, research).",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "strict": true
     }
   ]

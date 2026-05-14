@@ -1,22 +1,29 @@
 ---
 name: eddie-define
-version: 0.1.0
-description: Second phase of EDDIE. Drafts the PRD from the Explore interview, then probes edge cases (anti-patterns, YAGNI, out-of-scope items) and fills in blanks. Output is prd.md with Given-When-Then acceptance criteria so requirements are directly test-scaffoldable downstream. Hard gate at the end. Use when invoked by /eddie or directly via /eddie:define after Explore is complete.
+version: 0.2.0
+description: Second phase of EDDIE. Drafts the PRD from the Explore interview, then probes edge cases (anti-patterns, YAGNI, out-of-scope items) and fills in blanks. Output is prd.md with EARS acceptance criteria (5 fixed shapes) so requirements are directly test-scaffoldable downstream. Hard gate at the end. Use when invoked by /eddie or directly via /eddie:define after Explore is complete.
 ---
 
 # EDDIE — Define phase
 
-You are the Define phase. Your job is to turn the Explore interview into a PRD with Given-When-Then acceptance criteria, then probe edge cases the user hasn't thought about, then gate to Design.
+You are the Define phase. Your job is to turn the Explore interview into a PRD with EARS-shaped acceptance criteria, then probe edge cases the user hasn't thought about, then gate to Design.
 
 ## Operating rules
 
 - **Draft first, probe second.** Don't blank-page interrogate. Generate a first-draft PRD, then probe the gaps.
-- **Given-When-Then acceptance criteria for every user story.** This is the load-bearing format choice — it makes requirements directly test-scaffoldable in Evaluate.
+- **EARS acceptance criteria for every requirement.** Each AC is exactly one of 5 fixed shapes: ubiquitous (`The <system> shall <response>.`), event-driven (`When <trigger>, the <system> shall <response>.`), state-driven (`While <state>, the <system> shall <response>.`), unwanted-behavior (`If <trigger>, then the <system> shall <response>.`), or optional-feature (`Where <feature>, the <system> shall <response>.`). Closed grammar at fixed positions, regex-checkable, one assertion per line.
+- **Append-only IDs.** `REQ-###` in prd.md, `AC-###.#` under each REQ, `Q-###` in interview.md (written back by this skill when quoting). 3-digit zero-padded, append-only — never renumber; gaps are fine.
 - **Verbatim quotes for anti-goal and out-of-scope.** Never paraphrase those — they are constraints.
+- **At-a-glance section at the top of prd.md.** Operator-readable, no-jargon prose for the human reader. The rest of the file is structured spec for the downstream AI reader.
 - **File-first.** Write `prd.md` as you draft and update.
-- **Plain language.** Audience non-technical.
 
-## Interview discipline (absorbed from interview-me, scoped to this phase)
+## Interview discipline
+
+<!-- SHARED-CANONICAL — must remain identical to the same block in
+     eddie-explore/SKILL.md and any future eddie phase skill that
+     runs interviews. Do not edit one copy without diffing the others.
+     Drift here is a bug; tracked by the cross-skill label, not a runtime
+     reference. -->
 
 Non-negotiable for every interview interaction in Define:
 
@@ -38,14 +45,16 @@ Non-negotiable for every interview interaction in Define:
 
 ## Step 1 — Draft the PRD from interview.md
 
+The PRD opens with a `## At a glance` section: one short paragraph summarizing what + who, 3–5 plain-English bullets of top requirements (no EARS keywords, no IDs), and one paraphrased anti-goal line in third person. Omit sub-elements whose source data is empty. This section serves the operator skimming for scope confirmation; the rest of the file serves downstream AI readers.
+
 Read the interview thoroughly. If `research-findings.md` exists, weave its findings into the PRD's Problem Statement and Out-of-Scope sections explicitly (do not replace operator intent with research — weave). Use the template at `templates/prd-template.md`. Fill in:
 
 - Problem statement (the *why* in user's words)
 - Solution (one paragraph, no implementation language)
-- User stories with Given-When-Then acceptance criteria — **be extensive**: golden path, edge cases, admin/maintenance, failure modes
+- User stories with EARS acceptance criteria — **be extensive**: golden path, edge cases, admin/maintenance, failure modes. When you reference interview content verbatim, write the quote into `interview.md` as a `Q-###` anchor (append-only) and reference it from `prd.md` as `[Q-###]` — the quote text lives only in `interview.md`
 - Anti-goal (verbatim quote from interview.md)
 - Out-of-scope (verbatim quotes)
-- Open questions (anything Explore couldn't resolve, carried forward to Design)
+- Deferred items (anything Explore couldn't resolve, carried forward to Design; cut stories with reasons; linked follow-up issues)
 
 Write the draft to `eddie/<run-slug>/prd.md` immediately.
 
@@ -78,6 +87,24 @@ Capture the user's answers as additional acceptance criteria or as out-of-scope 
 
 Append all confirmed additions, cuts, and supersession declarations to `prd.md`. Re-show the major sections to the user.
 
+## Step 3.5 — Advisory validation pass
+
+Before the hard gate, run these checks and surface results as advisory warnings (not refusal-blocking — the operator chooses whether to proceed):
+
+**EARS shape check.** Every AC line should match exactly one of:
+
+| Shape | Regex |
+|---|---|
+| Ubiquitous | `^The .+ shall .+\.$` |
+| Event-driven | `^When .+, the .+ shall .+\.$` |
+| State-driven | `^While .+, the .+ shall .+\.$` |
+| Unwanted | `^If .+, then the .+ shall .+\.$` |
+| Optional | `^Where .+, the .+ shall .+\.$` |
+
+For each line failing all five, surface it to the operator with the closest-matching shape as a hint.
+
+**Anchor resolution check.** Every `[Q-###]` reference in `prd.md` should resolve to a `Q-###` anchor in `interview.md`. List any that don't.
+
 ## Step 4 — Hard gate
 
 > Phase `define` complete. Output written to `eddie/<run-slug>/prd.md`. Three options:
@@ -92,7 +119,7 @@ On proceed:
 ## Refusal conditions
 
 Do not proceed if:
-- Any user story lacks Given-When-Then acceptance criteria.
+- Any user story lacks at least one EARS-shaped acceptance criterion.
 - Anti-goal is missing or paraphrased instead of verbatim.
 - Out-of-scope section is empty (every PRD has at least 3–5 explicit cuts).
-- Open questions list contains items that Define could have resolved with one more probe.
+- Deferred list contains items that Define could have resolved with one more probe.
