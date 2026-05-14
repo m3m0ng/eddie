@@ -3,4 +3,4 @@ Thumbs.db
 *.log
 eddie/
 tests/
-.claude/worktrees/
+.claude/
