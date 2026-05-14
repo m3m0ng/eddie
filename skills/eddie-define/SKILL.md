@@ -19,18 +19,18 @@ You are the Define phase. Your job is to turn the Explore interview into a PRD w
 
 ## Interview discipline
 
-<!-- SHARED-CANONICAL — must remain identical to the same block in
-     eddie-explore/SKILL.md and any future eddie phase skill that
-     runs interviews. Do not edit one copy without diffing the others.
-     Drift here is a bug; tracked by the cross-skill label, not a runtime
-     reference. -->
+<!-- SHARED-CANONICAL — must remain byte-identical across every eddie
+     phase skill that runs interviews (currently eddie-explore,
+     eddie-define, eddie-design, and eddie-evaluate). Do not edit one
+     copy without diffing the others. Drift here is a bug; tracked by
+     the cross-skill label, not a runtime reference. -->
 
-Non-negotiable for every interview interaction in Define:
+Non-negotiable for every interview interaction:
 
 1. **One question at a time.** Never present a numbered list of questions. Ask one, wait, ask the next based on what they said.
 2. **Recommend an answer with each question.** Especially when probing edge cases, YAGNI, or anti-patterns — say "I'd cut this from v1 because X. Push back if you disagree." Don't ask blank-canvas "what edge cases should we cover?"
 3. **Skeptical tone, relentless within scope.** A weak answer ("I dunno, sure") gets one more probe — at minimum surface what *you* would pick and why.
-4. **One decision at a time, within Define's scope.** Walk Define's tree (PRD draft → YAGNI cuts → anti-pattern check → edge cases → cross-run supersession). Don't wander into Design or Implement decisions.
+4. **One decision at a time, within the current phase's scope.** Don't wander into other phases' decisions.
 5. **Read instead of ask when possible.** If the codebase already shows what an existing module does, read it; only ask the user about behavior the code can't tell you.
 6. **Rephrase based on prior answers.** "You said earlier you don't want to support mobile in v1 — does that change how the signup flow needs to work?"
 
